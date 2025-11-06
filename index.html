@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device‑width, initial‑scale=1.0" />
-  <title>TBN Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi‑Calculator App (Ocean Theme – Responsive)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
@@ -63,27 +63,42 @@
       background-color: var(--color-primary);
       color: white;
     }
+    .dark-card-light-mode {
+      background-color: #1e293b;
+      color: #f1f5f9;
+    }
+    .dark-card-light-mode input,
+    .dark-card-light-mode select {
+      background-color: #2e3a4a;
+      color: #f1f5f9;
+      border: 1px solid #475569;
+    }
+    .dark-card-light-mode label {
+      color: #e0f2fe;
+    }
   </style>
 </head>
 <body data-theme="light" class="min-h-screen font-sans flex flex-col">
-  <div class="container mx-auto p-6 flex-grow">
-    <div class="flex justify-between items-center mb-6">
-      <h1 class="text-4xl font-bold" style="color: var(--color-primary);">TBN Calculator</h1>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow">
+    <div class="flex flex-col sm:flex-row justify-between items-center mb-6">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4 sm:mb-0" style="color: var(--color-primary);">Multi‑Calculator App</h1>
       <button id="themeToggle" class="btn-toggle">Toggle Dark Mode</button>
     </div>
 
     <!-- Tabs -->
-    <div class="flex flex-wrap justify-center space-x-2 mb-4">
-      <button class="tab-btn px-5 py-2 rounded-lg active" data-tab="cargo">Cargo Intake</button>
-      <button class="tab-btn px-5 py-2 rounded-lg" data-tab="voyage">Mini Voyage</button>
-      <button class="tab-btn px-5 py-2 rounded-lg" data-tab="ballast">Ballast</button>
-      <button class="tab-btn px-5 py-2 rounded-lg" data-tab="openbook">Open Book</button>
+    <div class="overflow-x-auto">
+      <div class="flex space-x-2 justify-center mb-6">
+        <button class="tab-btn px-4 py-2 rounded-lg active whitespace-nowrap" data-tab="cargo">Cargo Intake</button>
+        <button class="tab-btn px-4 py-2 rounded-lg whitespace-nowrap" data-tab="voyage">Mini Voyage</button>
+        <button class="tab-btn px-4 py-2 rounded-lg whitespace-nowrap" data-tab="ballast">Ballast</button>
+        <button class="tab-btn px-4 py-2 rounded-lg whitespace-nowrap" data-tab="openbook">Open Book</button>
+      </div>
     </div>
 
     <!-- Tab Panels -->
     <div id="cargo" class="tab-content">
       <div class="card p-6 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-semibold mb-4" style="color: var(--color-primary);">Cargo Intake Calculator</h2>
+        <h2 class="text-xl sm:text-2xl font-semibold mb-4" style="color: var(--color-primary);">Cargo Intake Calculator</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-4">
             <label class="block">Deadweight</label>
@@ -125,41 +140,41 @@
 
     <div id="voyage" class="tab-content hidden">
       <div class="card p-6 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-semibold mb-4" style="color: var(--color-primary);">Mini Voyage Calculator</h2>
+        <h2 class="text-xl sm:text-2xl font-semibold mb-4" style="color: var(--color-primary);">Mini Voyage Calculator</h2>
         <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-md space-y-4">
+          <div class="dark-card-light-mode p-4 rounded-md space-y-4">
             <h3 class="font-bold mb-2">Cargo Details</h3>
             <label>Cargo Qty:</label>
-            <input type="number" id="cargoQty" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="cargoQty" class="w-full p-2 rounded-md"/>
             <label>Load Rate:</label>
-            <input type="number" id="loadRate" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="loadRate" class="w-full p-2 rounded-md"/>
             <label>Discharge Rate:</label>
-            <input type="number" id="dischargeRate" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="dischargeRate" class="w-full p-2 rounded-md"/>
             <label>Extra Days:</label>
-            <input type="number" id="extraDays" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="extraDays" class="w-full p-2 rounded-md"/>
             <label>PDA:</label>
-            <input type="number" id="pda" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="pda" class="w-full p-2 rounded-md"/>
             <label>Other Expenses:</label>
-            <input type="number" id="otherExpenses" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="otherExpenses" class="w-full p-2 rounded-md"/>
             <label>Bunker Price (VLSFO):</label>
-            <input type="number" id="vlsfoRate" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="vlsfoRate" class="w-full p-2 rounded-md"/>
           </div>
-          <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-md space-y-4">
+          <div class="dark-card-light-mode p-4 rounded-md space-y-4">
             <h3 class="font-bold mb-2">Voyage Details</h3>
             <label>Laden Days:</label>
-            <input type="number" id="ladenDays" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="ladenDays" class="w-full p-2 rounded-md"/>
             <label>Ballast Days:</label>
-            <input type="number" id="ballastDays" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="ballastDays" class="w-full p-2 rounded-md"/>
             <label>Sea Consumption:</label>
-            <input type="number" id="seaConsumption" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="seaConsumption" class="w-full p-2 rounded-md"/>
             <label>Working Consumption:</label>
-            <input type="number" id="workingConsumption" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="workingConsumption" class="w-full p-2 rounded-md"/>
             <label>Idle Consumption:</label>
-            <input type="number" id="idleConsumption" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="idleConsumption" class="w-full p-2 rounded-md"/>
             <label>Hire (per day):</label>
-            <input type="number" id="hire" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="hire" class="w-full p-2 rounded-md"/>
             <label>ADDCOM (e.g. 0.0375):</label>
-            <input type="number" id="addcom" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="addcom" class="w-full p-2 rounded-md"/>
           </div>
         </form>
         <div class="text-center mt-4">
@@ -178,7 +193,7 @@
 
     <div id="ballast" class="tab-content hidden">
       <div class="card p-6 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-semibold mb-4" style="color: var(--color-primary);">Ballast Calculator</h2>
+        <h2 class="text-xl sm:text-2xl font-semibold mb-4" style="color: var(--color-primary);">Ballast Calculator</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-4">
             <label>Ballast Days:</label>
@@ -197,63 +212,63 @@
             <input type="number" id="ballastBonus" class="w-full p-2 border rounded-md" value="0"/>
           </div>
         </div>
-        <div class="mt-6 p-4 rounded-md" style="background-color: var(--bg);">
-          <h3 class="font-bold mb-2">Result</h3>
-          <div id="grossDOPHire" class="text-lg font-semibold" style="color: var(--color-accent);"></div>
+        <div class="mt‑6 p‑4 rounded‑md" style="background‑color:var(--bg);">
+          <h3 class="font‑bold mb‑2">Result</h3>
+          <div id="grossDOPHire" class="text‑lg font‑semibold" style="color: var(--color-accent);"></div>
         </div>
       </div>
     </div>
 
     <div id="openbook" class="tab-content hidden">
       <div class="card p-6 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-semibold mb-4" style="color: var(--color-primary);">Open Book Calculator</h2>
+        <h2 class="text-xl sm:text-2xl font-semibold mb-4" style="color: var(--color-primary);">Open Book Calculator</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-md space-y-4">
+          <div class="dark-card-light-mode p-4 rounded-md space-y-4">
             <h3 class="font-bold mb-2">Cargo Details</h3>
             <label>Base Freight:</label>
-            <input type="number" id="baseFreight" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="baseFreight" class="w-full p‑2 rounded-md"/>
             <label>Quantity:</label>
-            <input type="number" id="quantity" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="quantity" class="w-full p‑2 rounded-md"/>
             <label>Initial Rate:</label>
-            <input type="number" id="initialRate" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="initialRate" class="w‑full p‑2 rounded-md"/>
             <label>Revised Rate:</label>
-            <input type="number" id="revisedRate" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="revisedRate" class="w‑full p‑2 rounded-md"/>
             <label>Additional Days:</label>
-            <input type="number" id="additionalDays" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="additionalDays" class="w-full p‑2 rounded-md"/>
             <label>Extra Miles:</label>
-            <input type="number" id="extraMiles" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="extraMiles" class="w-full p‑2 rounded-md"/>
             <label>Extra Expenses:</label>
-            <input type="number" id="extraExpenses" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="extraExpenses" class="w-full p‑2 rounded-md"/>
           </div>
-          <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-md space-y-4">
-            <h3 class="font-bold mb-2">Vessel Details</h3>
+          <div class="dark-card-light-mode p-4 rounded-md space-y-4">
+            <h3 class="font-bold mb‑2">Vessel Details</h3>
             <label>Ballast Speed:</label>
-            <input type="number" id="ballastSpeed" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="ballastSpeed" class="w-full p‑2 rounded-md"/>
             <label>Laden Speed:</label>
-            <input type="number" id="ladenSpeed" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="ladenSpeed" class="w-full p‑2 rounded-md"/>
             <label>Ballast VLSFO:</label>
-            <input type="number" id="ballastVLSFO" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="ballastVLSFO" class="w-full p‑2 rounded-md"/>
             <label>Laden VLSFO:</label>
-            <input type="number" id="ladenVLSFO" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="ladenVLSFO" class="w‑full p‑2 rounded-md"/>
             <label>Sea LSMGO:</label>
-            <input type="number" id="seaLSMGO" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="seaLSMGO" class="w‑full p‑2 rounded-md"/>
             <label>Idle VLSFO:</label>
-            <input type="number" id="idleVLSFO" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="idleVLSFO" class="w-full p‑2 rounded-md"/>
             <label>Working VLSFO:</label>
-            <input type="number" id="workingVLSFO" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="workingVLSFO" class="w‑full p‑2 rounded-md"/>
             <label>Port LSMGO:</label>
-            <input type="number" id="portLSMGO" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="portLSMGO" class="w-full p‑2 rounded-md"/>
           </div>
-          <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-md space-y-4">
-            <h3 class="font-bold mb-2">Fuel & Hire</h3>
+          <div class="dark-card-light-mode p‑4 rounded-md space-y‑4">
+            <h3 class="font-bold mb‑2">Fuel & Hire</h3>
             <label>VLSFO Cost:</label>
-            <input type="number" id="vlsfoCost" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="vlsfoCost" class="w-full p‑2 rounded-md"/>
             <label>LSMGO Cost:</label>
-            <input type="number" id="lsmgoCost" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="lsmgoCost" class="w‑full p‑2 rounded-md"/>
             <label>Vessel Hire:</label>
-            <input type="number" id="vesselHire" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="vesselHire" class="w-full p‑2 rounded-md"/>
             <label>Addcom %:</label>
-            <input type="number" id="addcomOpen" class="w-full p-2 border rounded-md"/>
+            <input type="number" id="addcomOpen" class="w-full p‑2 rounded-md"/>
           </div>
         </div>
         <div class="mt‑6 p‑4 rounded‑md" style="background‑color:var(--bg);">
@@ -282,11 +297,9 @@
 
   </div>
 
-  <footer class="text-center py‑4 text‑sm" style="color: var(--text);">&copy; 2025 Multi‑Calculator App</footer>
+  <footer class="text-center py-4 text-sm" style="color: var(--text);">&copy; 2025 Multi‑Calculator App</footer>
 
-  <!-- JavaScript logic -->
   <script>
-    // Theme toggle logic
     const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', () => {
       const current = document.body.getAttribute('data-theme');
@@ -299,7 +312,6 @@
       document.body.setAttribute('data-theme', saved);
     });
 
-    // Tab navigation logic
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabPanels = document.querySelectorAll('.tab-content');
     tabButtons.forEach(button => {
@@ -311,11 +323,9 @@
         document.getElementById(target).classList.remove('hidden');
       });
     });
-    // Initialize first tab
     tabButtons[0].classList.add('active');
     tabPanels[0].classList.remove('hidden');
 
-    // Calculator 1 logic: Cargo Intake
     function calculateCargo() {
       const val = id => parseFloat(document.getElementById(id).value) || 0;
       const dwt = val('deadweight'), draft = val('draft'), tpc = val('tpc'),
@@ -328,22 +338,21 @@
       const dwtChange = draftChange * tpc * 100;
       const restrictedDwt = dwt - dwtChange;
       const intakeQty = restrictedDwt - vslConst;
-      const tropicalDraft = draft * 49 / 48;
+      const tropicalDraft = draft * 49/48;
       const tropicalDwt = (tropicalDraft - draft) * tpc * 100 + dwt;
       const tropicalIntake = tropicalDwt - vslConst;
       let others;
       if (draftChange === 0) {
-        others = (draftRes > tropicalDraft) ? tropicalIntake : ((draftRes - draft) * tpc * 100 + dwt - vslConst);
+        others = (draftRes > tropicalDraft) ? tropicalIntake : ((draftRes - draft)*tpc*100 + dwt - vslConst);
       } else {
         others = intakeQty;
       }
-      const tropicalOrSummer = tropical === 'Yes' ? others : intakeQty;
-      const basedOnInput = (qty * (1 + tol)) < tropicalOrSummer ? qty * (1 + tol) : tropicalOrSummer;
+      const tropicalOrSummer = (tropical === 'Yes') ? others : intakeQty;
+      const basedOnInput = (qty*(1+tol)) < tropicalOrSummer ? qty*(1+tol) : tropicalOrSummer;
       const actualIntakeQty = basedOnInput < qtyAsPerGrain ? basedOnInput : qtyAsPerGrain;
       document.getElementById('output').innerHTML = `<strong>Actual Intake Quantity:</strong> ${actualIntakeQty.toFixed(2)} MT`;
     }
 
-    // Calculator 2 logic: Mini Voyage
     function calculateVoyage() {
       const val = id => parseFloat(document.getElementById(id).value) || 0;
       const cargoQty = val("cargoQty"), loadRate = val("loadRate"), dischargeRate = val("dischargeRate"),
@@ -351,13 +360,13 @@
             vlsfoRate = val("vlsfoRate"), ladenDays = val("ladenDays"), ballastDays = val("ballastDays"),
             seaConsumption = val("seaConsumption"), workingConsumption = val("workingConsumption"),
             idleConsumption = val("idleConsumption"), hire = val("hire"), addcom = val("addcom");
-      const loadingTime = loadRate > 0 ? cargoQty / loadRate : 0;
-      const dischargingTime = dischargeRate > 0 ? cargoQty / dischargeRate : 0;
+      const loadingTime = loadRate>0 ? cargoQty/loadRate : 0;
+      const dischargingTime = dischargeRate>0 ? cargoQty/dischargeRate : 0;
       const totalDuration = ladenDays + ballastDays + extraDays + loadingTime + dischargingTime;
-      const totalConsumption = (ladenDays * seaConsumption) + (ballastDays * seaConsumption) + (loadingTime * workingConsumption) + (dischargingTime * workingConsumption) + (extraDays * idleConsumption);
+      const totalConsumption = (ladenDays*seaConsumption)+(ballastDays*seaConsumption)+(loadingTime*workingConsumption)+(dischargingTime*workingConsumption)+(extraDays*idleConsumption);
       const totalBunkerCost = totalConsumption * vlsfoRate;
-      const totalExpenses = (totalDuration * hire * 0.9625) + totalBunkerCost + pda + otherExpenses;
-      const freight = cargoQty > 0 ? (totalExpenses / cargoQty) * (1 + addcom) : 0;
+      const totalExpenses = (totalDuration*hire*0.9625)+totalBunkerCost+pda+otherExpenses;
+      const freight = cargoQty>0 ? (totalExpenses/cargoQty)*(1+addcom) : 0;
       document.getElementById("totalDuration").textContent = totalDuration.toFixed(2);
       document.getElementById("totalConsumption").textContent = totalConsumption.toFixed(2);
       document.getElementById("totalBunkerCost").textContent = totalBunkerCost.toFixed(2);
@@ -366,7 +375,6 @@
       document.getElementById("outputSection").style.display = 'block';
     }
 
-    // Calculator 3 logic: Ballast
     function calculateGrossDOPHire() {
       const val = id => parseFloat(document.getElementById(id).value) || 0;
       const ballastDays = val("ballastDaysBallast"), voyageDays = val("voyageDays"),
@@ -376,34 +384,37 @@
         document.getElementById("grossDOPHire").innerText = "0.00";
         return;
       }
-      const grossDOPHire = (((voyageDays - ballastDays) * hireBssAps * 0.95) - (bunkerPrice * consumptionBallast * ballastDays) + ballastBonus) / voyageDays / 0.95;
+      const grossDOPHire = (((voyageDays - ballastDays)*hireBssAps*0.95)-(bunkerPrice*consumptionBallast*ballastDays)+ballastBonus)/voyageDays/0.95;
       document.getElementById("grossDOPHire").innerText = grossDOPHire.toFixed(2);
     }
-    document.querySelectorAll('#ballast input').forEach(input => { input.addEventListener('input', calculateGrossDOPHire); });
+    document.querySelectorAll('#ballast input').forEach(input => input.addEventListener('input', calculateGrossDOPHire));
     window.addEventListener('load', calculateGrossDOPHire);
 
-    // Calculator 4 logic: Open Book
     function calcOpenBook() {
       const val = id => parseFloat(document.getElementById(id).value) || 0;
-      const baseFreight = val("baseFreight"), quantity = val("quantity"), initialRate = val("initialRate"),
-            revisedRate = val("revisedRate"), additionalDays = val("additionalDays"), extraMiles = val("extraMiles"),
-            extraExpenses = val("extraExpenses"), ballastSpeed = val("ballastSpeed"), ladenSpeed = val("ladenSpeed"),
-            ballastVLSFO = val("ballastVLSFO"), ladenVLSFO = val("ladenVLSFO"), seaLSMGO = val("seaLSMGO"),
-            idleVLSFO = val("idleVLSFO"), workingVLSFO = val("workingVLSFO"), portLSMGO = val("portLSMGO"),
-            vlsfoCost = val("vlsfoCost"), lsmgoCost = val("lsmgoCost"), vesselHire = val("vesselHire"), addcom = val("addcomOpen");
-      const extraSailing = ladenSpeed > 0 ? extraMiles / (24 * ladenSpeed) : 0;
-      const extraPortDays = initialRate > 0 ? ((quantity / revisedRate) - (quantity / initialRate)) + additionalDays : additionalDays;
+      const baseFreight = val("baseFreight"), quantity = val("quantity"),
+            initialRate = val("initialRate"), revisedRate = val("revisedRate"),
+            additionalDays = val("additionalDays"), extraMiles = val("extraMiles"),
+            extraExpenses = val("extraExpenses"), ballastSpeed = val("ballastSpeed"),
+            ladenSpeed = val("ladenSpeed"), ballastVLSFO = val("ballastVLSFO"),
+            ladenVLSFO = val("ladenVLSFO"), seaLSMGO = val("seaLSMGO"),
+            idleVLSFO = val("idleVLSFO"), workingVLSFO = val("workingVLSFO"),
+            portLSMGO = val("portLSMGO"), vlsfoCost = val("vlsfoCost"),
+            lsmgoCost = val("lsmgoCost"), vesselHire = val("vesselHire"),
+            addcom = val("addcomOpen");
+      const extraSailing = ladenSpeed>0 ? extraMiles/(24*ladenSpeed) : 0;
+      const extraPortDays = initialRate>0 ? ((quantity/revisedRate)-(quantity/initialRate))+additionalDays : additionalDays;
       const totalDays = extraSailing + extraPortDays;
       const vlsfoSea = extraSailing * ladenVLSFO;
-      const vlsfoPort = ((extraPortDays - additionalDays) * workingVLSFO) + (additionalDays * idleVLSFO);
+      const vlsfoPort = ((extraPortDays - additionalDays)*workingVLSFO)+(additionalDays*idleVLSFO);
       const lsmgoSea = extraSailing * seaLSMGO;
       const lsmgoPort = extraPortDays * portLSMGO;
-      const costVLSFO = (vlsfoSea + vlsfoPort) * vlsfoCost;
-      const costLSMGO = (lsmgoSea + lsmgoPort) * lsmgoCost;
-      const extraCost = (totalDays * vesselHire * (1 - (addcom / 100))) + costVLSFO + costLSMGO + extraExpenses;
-      const additionalFreight = quantity > 0 ? extraCost / quantity : 0;
+      const costVLSFO = (vlsfoSea + vlsfoPort)*vlsfoCost;
+      const costLSMGO = (lsmgoSea + lsmgoPort)*lsmgoCost;
+      const extraCost = (totalDays * vesselHire * (1 - (addcom/100))) + costVLSFO + costLSMGO + extraExpenses;
+      const additionalFreight = quantity>0 ? extraCost/quantity : 0;
       const newFreight = baseFreight + additionalFreight;
-      const set = (id, value) => { document.getElementById(id).innerText = value.toFixed(2); };
+      const set = (id,val) => { document.getElementById(id).innerText = val.toFixed(2); };
       set("extraSailing", extraSailing);
       set("extraPortDays", extraPortDays);
       set("totalDays", totalDays);
@@ -418,7 +429,7 @@
       set("newFreight", newFreight);
     }
     document.querySelectorAll("#openbook input").forEach(input => input.addEventListener("input", calcOpenBook));
-    window.addEventListener("load", calcOpenBook);
+    window.addEventListener('load', calcOpenBook);
   </script>
 </body>
 </html>
